@@ -1,0 +1,301 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "SyncfusionBlazorApp/1.0.0": {
+        "dependencies": {
+          "Syncfusion.Blazor.Calendars": "33.1.45",
+          "Syncfusion.Blazor.Navigations": "33.1.45",
+          "Syncfusion.Blazor.Themes": "33.1.45"
+        },
+        "runtime": {
+          "SyncfusionBlazorApp.dll": {}
+        }
+      },
+      "Syncfusion.Blazor.Buttons/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Core": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Buttons.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Calendars/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "33.1.45",
+          "Syncfusion.Blazor.Core": "33.1.45",
+          "Syncfusion.Blazor.Inputs": "33.1.45",
+          "Syncfusion.Blazor.Lists": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Calendars.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Core/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Licensing": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Core.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Data/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Core": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Data.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.DropDowns/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "33.1.45",
+          "Syncfusion.Blazor.Core": "33.1.45",
+          "Syncfusion.Blazor.Data": "33.1.45",
+          "Syncfusion.Blazor.Inputs": "33.1.45",
+          "Syncfusion.Blazor.Notifications": "33.1.45",
+          "Syncfusion.Blazor.Spinner": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.DropDowns.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Inputs/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "33.1.45",
+          "Syncfusion.Blazor.Core": "33.1.45",
+          "Syncfusion.Blazor.Data": "33.1.45",
+          "Syncfusion.Blazor.Popups": "33.1.45",
+          "Syncfusion.Blazor.Spinner": "33.1.45",
+          "Syncfusion.Blazor.SplitButtons": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Inputs.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Lists/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "33.1.45",
+          "Syncfusion.Blazor.Core": "33.1.45",
+          "Syncfusion.Blazor.Data": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Lists.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Navigations/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "33.1.45",
+          "Syncfusion.Blazor.Core": "33.1.45",
+          "Syncfusion.Blazor.Data": "33.1.45",
+          "Syncfusion.Blazor.DropDowns": "33.1.45",
+          "Syncfusion.Blazor.Inputs": "33.1.45",
+          "Syncfusion.Blazor.Lists": "33.1.45",
+          "Syncfusion.Blazor.Popups": "33.1.45",
+          "Syncfusion.Blazor.Spinner": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Navigations.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Notifications/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "33.1.45",
+          "Syncfusion.Blazor.Core": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Notifications.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Popups/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "33.1.45",
+          "Syncfusion.Blazor.Core": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Popups.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Spinner/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Core": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Spinner.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.SplitButtons/33.1.45": {
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "33.1.45",
+          "Syncfusion.Blazor.Core": "33.1.45",
+          "Syncfusion.Blazor.Popups": "33.1.45",
+          "Syncfusion.Blazor.Spinner": "33.1.45"
+        },
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.SplitButtons.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Blazor.Themes/33.1.45": {
+        "runtime": {
+          "lib/net10.0/Syncfusion.Blazor.Themes.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      },
+      "Syncfusion.Licensing/33.1.45": {
+        "runtime": {
+          "lib/net10.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "33.1.45.0",
+            "fileVersion": "33.1.45.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SyncfusionBlazorApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.Blazor.Buttons/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fTu80lf+CfSwb/ymJo7ehEkUt6xdCijyksj8yaAY00opbvJ1mWt8U42U/iPvDuIw7JAdq5PuNLrXviuUlDuLcg==",
+      "path": "syncfusion.blazor.buttons/33.1.45",
+      "hashPath": "syncfusion.blazor.buttons.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Calendars/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TO4PXYaKjTTck3YqDPr0BvgTxLsYvv+T9sImTJ2tynEjPbj3Do7t5xPs0bCaNBhUEfEi7GHan2mCtZM3vycxkw==",
+      "path": "syncfusion.blazor.calendars/33.1.45",
+      "hashPath": "syncfusion.blazor.calendars.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Core/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zPIlreWks+ySDFt7r7/9P0Atcf6g3nFelUJvb3INV/jerCXK/tScMcu1vndFoRr4v6BRBPkFlkzMA//OfH3EJw==",
+      "path": "syncfusion.blazor.core/33.1.45",
+      "hashPath": "syncfusion.blazor.core.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Data/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JW+CEO+qI7DzEXR2e5U6qzZTgsvZR62unBsAfnZo7bi/GTmQjrdRL88kbjlRck45pCNcGE1u4a7GEDR+onFWXw==",
+      "path": "syncfusion.blazor.data/33.1.45",
+      "hashPath": "syncfusion.blazor.data.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.DropDowns/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-plXGfdbasyG/oKm+GkQCZPkU2Lff9qJ18LpxFub9cABBT25EZcWw5VDL/O9ICmPk5vnfGi9BvDzLpn/BzuurvQ==",
+      "path": "syncfusion.blazor.dropdowns/33.1.45",
+      "hashPath": "syncfusion.blazor.dropdowns.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Inputs/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q6LW5TTVjDbu5Dc/eWft1hpJ/HBtzMtLGmgGXDeIDoCf2wK3TZa76zPUi91zuuj5IkpM51tu6HvbbI8R7+pMBw==",
+      "path": "syncfusion.blazor.inputs/33.1.45",
+      "hashPath": "syncfusion.blazor.inputs.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Lists/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9qYI31Q68LSDsOLsMVb9t2Yn5VgxoI3t45ORKPT0ytouhK9otGbHIA2x8GQLk2MDjZmQsI12KMBh17h7MYsEOw==",
+      "path": "syncfusion.blazor.lists/33.1.45",
+      "hashPath": "syncfusion.blazor.lists.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Navigations/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WHF5+emsHcc5eAtuf5OhVAQeylpAUKG/BbqKfRRdGowJnLmg4kXc5zDBpMQG/s3HXM4Nol7JMBQ5O0BUQFgVtg==",
+      "path": "syncfusion.blazor.navigations/33.1.45",
+      "hashPath": "syncfusion.blazor.navigations.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Notifications/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iVIf3E6frjllkO4qNnBwcRq56GYp2l+z8BVp4/Fju0sGr7yAH4YdPeLzpM2qzNYxxXHo6ciuZfsYjjB0yb9IKg==",
+      "path": "syncfusion.blazor.notifications/33.1.45",
+      "hashPath": "syncfusion.blazor.notifications.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Popups/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DbdVZjXnheqeQ74cc5ypV1IUxrxN6Q4iGGvIwjsxrMhC2cqigqSkC4HkcxY89OBRHCBHVRCfCPl97aELE0m/kg==",
+      "path": "syncfusion.blazor.popups/33.1.45",
+      "hashPath": "syncfusion.blazor.popups.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Spinner/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ibHJccO9EG8WIEQxGvM5b0JfX8FUzyEgftbgfrjNAuiJDXQrr+c6sTjvNP/QvfiGPJw2A7pjYT5Wzjy/sr//cQ==",
+      "path": "syncfusion.blazor.spinner/33.1.45",
+      "hashPath": "syncfusion.blazor.spinner.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.SplitButtons/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ICB5NBz4YkMEl+KbfZb8PpErhNlz2bGDJtT0AufWnJ/JPffFuP0zc37VSKHKrZ/cwqr8D58hyirIF3C3lXxI2Q==",
+      "path": "syncfusion.blazor.splitbuttons/33.1.45",
+      "hashPath": "syncfusion.blazor.splitbuttons.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Blazor.Themes/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ViEPDuxi9ReXbk6cEpRfAk2mzfYw5V/7uOkrNcbBq8TEh1/TOohxKkf3sm4PeWk51zdabXNIqyiAPeot0JGUUA==",
+      "path": "syncfusion.blazor.themes/33.1.45",
+      "hashPath": "syncfusion.blazor.themes.33.1.45.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/33.1.45": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bXm3SoWv1OOGStt8XtgaxFjuvZjMsUBxLXEsuc0qCfMKU3Xq1ze1QW8uY0YQ649MHQvHDm7+TMypjjZZh0G3/Q==",
+      "path": "syncfusion.licensing/33.1.45",
+      "hashPath": "syncfusion.licensing.33.1.45.nupkg.sha512"
+    }
+  }
+}
