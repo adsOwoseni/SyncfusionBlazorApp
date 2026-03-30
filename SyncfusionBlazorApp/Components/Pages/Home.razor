@@ -1,5 +1,6 @@
 ﻿@page "/"
 
+<h1 id = "NK">hhhhh</h1>
 <div id="calendar">
 
         <div id="calendar-header">
@@ -16,13 +17,20 @@
 
         <div id="calendar-body"></div>
 
-    </div>
+</div>
+
+<div id = "notes">
+
+</div>
 
 <style>
 body {
     font-family: Arial, sans-serif;
 }
 
+#NK{
+    color: #999999
+}
 #calendar {
     width: 100%;
     max-width: 1200px;
@@ -62,15 +70,27 @@ body {
 
 #calendar-body div {
     padding: 20px;
-    background-color: #fff;
+    background-color: #999999;
     text-align: center;
     cursor: pointer;
 }
 
-#calendar-body div.today {
-    background-color: #f00;
+#calendar-body div.outOfMonth {
+    background-color: #555555;
     color: #fff;
 }
+
+
+#calendar-body div.today {
+    background-color: #aaaaaa;
+    color: #fff;
+}
+
+#calendar-body div:hover{
+    background-color: #cccccc;
+}
+
+
 
 .change-month {
     cursor: pointer;
@@ -82,11 +102,12 @@ body {
     let date = new Date();
 
 function renderCalendar() {
-    date.setDate(1);
+    date.setDate (1);
 
     const monthDays = document.getElementById('calendar-body');
     const month = document.getElementById('month');
     const daysElement = document.getElementById('days');
+    const testEle = document.getElementById('NK')
 
     const lastDay = new Date(
         date.getFullYear(),
@@ -138,10 +159,11 @@ function renderCalendar() {
     month.innerText = `${months[date.getMonth()]} ${date.getFullYear()}`;
     daysElement.innerHTML = days.map(day => `<div>${day}</div>`).join('');
 
+    testEle.innerText = `${date.getDay()} ${date.getMonth()}`;
     let dates = '';
 
     for (let x = firstDayIndex; x > 0; x--) {
-        dates += `<div class='prev-date'>${prevLastDay - x + 1}</div>`;
+        dates += `<div class='outOfMonth'>${prevLastDay - x + 1}</div>`;
     }
 
     for (let i = 1; i <= lastDay; i++) {
@@ -151,13 +173,15 @@ function renderCalendar() {
             date.getFullYear() === new Date().getFullYear()
         ) {
             dates += `<div class='today'>${i}</div>`;
-        } else {
+
+        }
+        else {
             dates += `<div>${i}</div>`;
         }
     }
 
     for (let j = 1; j <= nextDays; j++) {
-        dates += `<div class='next-date'>${j}</div>`;
+        dates += `<div class='outOfMonth'>${j}</div>`;
     }
     monthDays.innerHTML = dates;
 }
@@ -179,6 +203,7 @@ document.getElementById('month-next').addEventListener('click', () => {
         document.getElementById('calendar-body').classList.remove('fade-out');
     }, 500);
 });
+
 
 renderCalendar();
 
