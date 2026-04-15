@@ -1,26 +1,33 @@
 ﻿@page "/"
 
 <h1 id = "NK">hhhhh</h1>
-<div id="calendar">
+<div id="calendar" class = "grid">
 
-        <div id="calendar-header">
+    <div class = "header">
 
-            <span id="month-prev" class="change-month">&lt;</span>
+        <span id="month-prev" class="change-month">&lt;</span>
 
-            <h1 id="month"></h1>
+        <h1 id="month"></h1>
 
-            <span id="month-next" class="change-month">&gt;</span>
+        <span id="month-next" class="change-month">&gt;</span>
 
-        </div>
+    </div>
 
-        <div id="days"></div>
+    <div id="days"></div>
 
-        <div id="calendar-body"></div>
+    <div id="calendar-body"></div>
 
 </div>
 
-<div id = "notes">
+<div id = "day-schedule"  class = "grid">
+    <div class = "header">
+        <span id="day-prev" class="change-week">&lt;</span>
+        <h1 id = "date">hh</h1>
+        <span id="day-next" class="change-week">&lt;</span>
+    </div>
 
+    <div id = time-sections></div>
+    <div id = "day-schedule-body"></div>
 </div>
 
 <style>
@@ -31,13 +38,15 @@ body {
 #NK{
     color: #999999
 }
-#calendar {
+.grid {
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
 }
 
-#calendar-header {
+#calendar{max-width: 1200px;}
+#day-schedule{max-width: 1200px; max-height: 400;}
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -89,7 +98,6 @@ body {
 #calendar-body div:hover{
     background-color: #cccccc;
 }
-
 
 
 .change-month {

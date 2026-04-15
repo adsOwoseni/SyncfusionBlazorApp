@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SyncfusionBlazorApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34db09d54f65d67108b357c522d5b56891ca1931")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49f1e76503324399a4fde2e69852f62a3df73d78")]
 [assembly: System.Reflection.AssemblyProductAttribute("SyncfusionBlazorApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SyncfusionBlazorApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
