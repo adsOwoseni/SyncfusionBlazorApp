@@ -1,78 +1,122 @@
 ﻿@page "/"
 
-<div id="calendar">
+<h1 id = "NK">hhhhh</h1>
+<div id="calendar" class = "grid">
 
-        <div id="calendar-header">
+    <div class = "header">
 
-            <span id="month-prev" class="change-month">&lt;</span>
+        <span id="month-prev" class="pointer">&lt;</span>
 
-            <h1 id="month"></h1>
+        <h1 id="month"></h1>
 
-            <span id="month-next" class="change-month">&gt;</span>
-
-        </div>
-
-        <div id="days"></div>
-
-        <div id="calendar-body"></div>
+        <span id="month-next" class="pointer">&gt;</span>
 
     </div>
+
+    <div id="days" class ="subheader"></div>
+
+    <div id="calendar-body" class ="intGrid"></div>
+
+</div>
+
+<div id = "day-schedule"  class = "grid">
+    <div class = "header">
+        <span id="day-prev" class="pointer">&lt;</span>
+        <h1 id = "date">hh</h1>
+        <span id="day-next" class="pointer">&lt;</span>
+    </div>
+
+    <div id = "day-schedule-header" class ="subheader"></div>
+    <div id = "day-schedule-body" class ="intGrid"></div>
+</div>
 
 <style>
 body {
     font-family: Arial, sans-serif;
 }
 
-#calendar {
+#NK{
+    color: #999999
+}
+.grid {
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
 }
 
-#calendar-header {
+#calendar{max-width: 100%; margin: 5px;}
+#day-schedule{max-width: 100%; margin: 5px;}
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     background-color: #333;
     color: #fff;
+    
 }
 
-#days {
+.subheader {
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
+    justify-content:  space-evenly;
+    padding: 1px;
     background-color: #333;
     color: #fff;
+}
+
+
+#day-schedule-header div {
+    align-items: center;
 
 }
 
-#calendar-body {
+.intGrid{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
     gap: 1px;
     background-color: #333;
     transition: opacity 0.25s ease;
     opacity: 1;
+}
+#calendar-body {
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#day-schedule-body{
+    height :400px;
+    overflow-y: scroll;
+    grid-template-columns: repeat(8,1fr);
 }
 
 #calendar-body.fade-out {
     opacity: 0;
 }
 
-#calendar-body div {
+.intGrid div {
     padding: 20px;
-    background-color: #fff;
+    background-color: #999999;
     text-align: center;
     cursor: pointer;
 }
-
-#calendar-body div.today {
-    background-color: #f00;
+.intGrid div.timePartition 
+{    background-color: #333;
+    color: #fff;}
+#calendar-body div.outOfMonth {
+    background-color: #555555;
     color: #fff;
 }
 
-.change-month {
+
+#calendar-body div.today {
+    background-color: #aaaaaa;
+    color: #fff;
+}
+
+#calendar-body div:hover{
+    background-color: #cccccc;
+}
+
+
+.pointer {
     cursor: pointer;
 }
 
@@ -81,34 +125,11 @@ body {
 <script>
     let date = new Date();
 
-function renderCalendar() {
-    date.setDate(1);
 
     const monthDays = document.getElementById('calendar-body');
     const month = document.getElementById('month');
     const daysElement = document.getElementById('days');
-
-    const lastDay = new Date(
-        date.getFullYear(),
-        date.getMonth() + 1,
-        0
-    ).getDate();
-
-    const prevLastDay = new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        0
-    ).getDate();
-
-    const firstDayIndex = date.getDay();
-
-    const lastDayIndex = new Date(
-        date.getFullYear(),
-        date.getMonth() + 1,
-        0
-    ).getDay();
-
-    const nextDays = 7 - lastDayIndex - 1;
+    const testEle = document.getElementById('NK')
 
     const months = [
         'January',
@@ -135,13 +156,45 @@ function renderCalendar() {
         'S'
     ];
 
+
+
+function renderCalendar() {
+    date.setDate (1);
+
+    const lastDay = new Date(
+        date.getFullYear(),
+        date.getMonth() + 1,
+        0
+    ).getDate();
+    
+
+    const prevLastDay = new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        0
+    ).getDate();
+    
+    const firstDayIndex = date.getDay();
+
+    const lastDayIndex = new Date(
+        date.getFullYear(),
+        date.getMonth() + 1,
+        0
+    ).getDay();
+    
+
+    const nextDays = 7 - lastDayIndex - 1;
+
+
+
     month.innerText = `${months[date.getMonth()]} ${date.getFullYear()}`;
     daysElement.innerHTML = days.map(day => `<div>${day}</div>`).join('');
 
+    
     let dates = '';
 
     for (let x = firstDayIndex; x > 0; x--) {
-        dates += `<div class='prev-date'>${prevLastDay - x + 1}</div>`;
+        dates += `<div class='outOfMonth'>${prevLastDay - x + 1}</div>`;
     }
 
     for (let i = 1; i <= lastDay; i++) {
@@ -151,13 +204,15 @@ function renderCalendar() {
             date.getFullYear() === new Date().getFullYear()
         ) {
             dates += `<div class='today'>${i}</div>`;
-        } else {
+
+        }
+        else {
             dates += `<div>${i}</div>`;
         }
     }
 
     for (let j = 1; j <= nextDays; j++) {
-        dates += `<div class='next-date'>${j}</div>`;
+        dates += `<div class='outOfMonth'>${j}</div>`;
     }
     monthDays.innerHTML = dates;
 }
@@ -182,4 +237,31 @@ document.getElementById('month-next').addEventListener('click', () => {
 
 renderCalendar();
 
+function renderSchedule(){
+
+    const daySchedHeaderEle = document.getElementById("day-schedule-header");
+    const timeBlockEle = document.getElementById("day-schedule-body")
+    let time = '';
+    let timeBlocks = '';
+    const dayoffset = (new Date().getDate()-new Date().getDay())
+    for(let p = dayoffset-1; p < dayoffset+7; p++)
+    {
+        if(p==(dayoffset-1)){time += `<div>${"TIME"}</div>`;}
+        else{ time += `<div>${p} ${months[date.getMonth()]}</div>`;}
+    }
+    const setTime = 0;
+    for(let l = 0; l <24*8; l++)
+    {
+        if(l%8 == 0){
+            timeBlocks += `<div class = " timePartition">${l/8 + ":00"}</div>` ;
+            
+            }
+        else{timeBlocks+= `<div>${" "}</div>`;}
+        
+    }
+    daySchedHeaderEle.innerHTML = time;
+    timeBlockEle.innerHTML=timeBlocks;
+}
+
+renderSchedule();
 </script>

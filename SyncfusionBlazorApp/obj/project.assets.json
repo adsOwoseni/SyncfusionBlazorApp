@@ -821,11 +821,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\seyio\\source\\repos\\SyncfusionBlazorApp\\SyncfusionBlazorApp\\SyncfusionBlazorApp.csproj",
+      "projectUniqueName": "C:\\Users\\seyio\\source\\repos\\SyncfusionBlazorApp\\SyncfusionBlazorApp\\SyncfusionBlazorApp.csproj",
       "projectName": "SyncfusionBlazorApp",
-      "projectPath": "c:\\Users\\seyio\\source\\repos\\SyncfusionBlazorApp\\SyncfusionBlazorApp\\SyncfusionBlazorApp.csproj",
+      "projectPath": "C:\\Users\\seyio\\source\\repos\\SyncfusionBlazorApp\\SyncfusionBlazorApp\\SyncfusionBlazorApp.csproj",
       "packagesPath": "C:\\Users\\seyio\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\seyio\\source\\repos\\SyncfusionBlazorApp\\SyncfusionBlazorApp\\obj\\",
+      "outputPath": "C:\\Users\\seyio\\source\\repos\\SyncfusionBlazorApp\\SyncfusionBlazorApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
