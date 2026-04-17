@@ -1,6 +1,221 @@
-﻿@page "/counter"
-@rendermode InteractiveServer
+﻿<PageTitle>Counter</PageTitle>
+<PageTitle>MMU Student Hub</PageTitle>
 
-<PageTitle>Counter</PageTitle>
+<style>
+    body { font-family: Arial; }
 
+    .header {
+        text-align: center;
+        background: #6a0dad;
+        color: white;
+        padding: 20px;
+    }
+
+    .logo {
+        width: 120px;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .card {
+        background: #f9f9f9;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 8px;
+        margin: 10px 0;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 10px;
+        background: #6a0dad;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+</style>
+
+<div class="header">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHfIDC7ywmDll0k-k8eJoCGnmCDjn4rGuvxQ&s" class="logo" />
+    <h1>MMU Student Support Hub</h1>
+    <p>Helping you stay organised, supported, and successful at university</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>About This Website</h2>
+        <p>
+            This website is designed to support students at Manchester Metropolitan University by bringing together useful tools, apps, and university services.
+            University life can be stressful, especially when balancing coursework, finances, and personal wellbeing.
+        </p>
+        <p>
+            MMU offers a wide range of support including academic workshops, financial advice, wellbeing services, and career guidance.
+        </p>
+        <img src="https://aboutmanchester.co.uk/wp-content/uploads/2020/09/1-mmu-hero.jpg" />
+    </div>
+
+    <div class="card">
+        <h3>💰 Budgeting & Finance</h3>
+        <p>
+            Managing money is one of the biggest challenges students face. Rent, food, transport, and daily spending can build up quickly.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f" />
+
+        <h4>Useful Tools</h4>
+        <ul>
+            <li>
+                <a href="https://monzo.com" target="_blank">Monzo</a> – A mobile banking app that allows you to track spending in real time.
+                You can set monthly budgets, get notifications when you spend money, and see exactly where your money is going.
+                This helps students avoid overspending and stay in control of their finances.
+            </li>
+            <li>
+                <a href="https://emma-app.com" target="_blank">Emma</a> – Connects multiple bank accounts in one place.
+                It automatically categorises your spending (e.g. food, bills, subscriptions) so you can see patterns.
+                This is useful for spotting unnecessary expenses and saving money.
+            </li>
+            <li>
+                <a href="https://mint.intuit.com" target="_blank">Mint</a> – A budgeting tool that helps plan long-term finances.
+                You can set goals (like saving for rent or travel) and track progress over time.
+                This helps students build better financial habits.
+            </li>
+        </ul>
+
+        <p>
+            MMU offers financial support including hardship funds and advice services to help students manage their money.
+        </p>
+
+        <a href="https://www.mmu.ac.uk/about-us/contact" target="_blank" class="btn">
+     Contact Us to find out more 
+</a>
+    </div>
+
+    <div class="card">
+        <h3>📅 Time Management</h3>
+        <p>
+            Staying organised is essential for keeping up with university work. Planning your time properly can reduce stress.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe" />
+
+        <h4>Useful Tools</h4>
+        <ul>
+            <li>
+                <a href="https://calendar.google.com" target="_blank">Google Calendar</a> – Allows you to schedule lectures, deadlines, and personal events.
+                You can set reminders so you never miss important dates, helping you stay organised throughout the semester.
+            </li>
+            <li>
+                <a href="https://trello.com" target="_blank">Trello</a> – A visual task management tool using boards and cards.
+                You can break assignments into smaller tasks and move them as you progress, making big projects easier to manage.
+            </li>
+            <li>
+                <a href="https://www.notion.so" target="_blank">Notion</a> – An all-in-one workspace for notes, tasks, and planning.
+                Students can create study plans, organise notes, and track deadlines in one place.
+            </li>
+        </ul>
+
+        <p>
+            MMU provides workshops and academic support to help improve time management skills.
+        </p>
+
+        <a href="https://www.mmu.ac.uk/about-us/contact" class="btn">Contact Us To Find Out More</a>
+    </div>
+
+    <div class="card">
+        <h3>📚 Study Support</h3>
+        <p>
+            Using the right study techniques can make a big difference in your results.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0" />
+
+        <h4>Useful Tools</h4>
+        <ul>
+            <li>
+                <a href="https://quizlet.com" target="_blank">Quizlet</a> – Helps you create flashcards and quizzes.
+                This is useful for revising key terms and testing your knowledge before exams.
+            </li>
+            <li>
+                <a href="https://grammarly.com" target="_blank">Grammarly</a> – A writing assistant that checks grammar and spelling.
+                It also improves clarity, helping students submit higher-quality assignments.
+            </li>
+            <li>
+                <a href="https://www.forestapp.cc" target="_blank">Forest</a> – A focus app that encourages you to stay off your phone.
+                You grow a virtual tree while studying, which helps build better concentration habits.
+            </li>
+        </ul>
+
+        <p>
+            MMU offers library services, academic advisors, and study support sessions.
+        </p>
+
+         <a href="https://www.mmu.ac.uk/about-us/contact" class="btn">Contact Us To Find Out More</a>
+    </div>
+
+    <div class="card">
+        <h3>🧠 Wellbeing</h3>
+        <p>
+            Taking care of your mental health is important during university.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773" />
+
+        <h4>Useful Tools</h4>
+        <ul>
+            <li>
+                <a href="https://www.headspace.com" target="_blank">Headspace</a> – Offers guided meditation sessions.
+                This can help reduce stress, improve focus, and support mental wellbeing.
+            </li>
+            <li>
+                <a href="https://www.calm.com" target="_blank">Calm</a> – Provides sleep stories, breathing exercises, and relaxation tools.
+                Useful for managing anxiety and improving sleep quality.
+            </li>
+            <li>
+                <a href="https://www.studentminds.org.uk" target="_blank">Student Minds</a> – A student-focused mental health resource.
+                Offers advice, support, and guidance specifically for university students.
+            </li>
+        </ul>
+
+        <p>
+            MMU provides counselling services, wellbeing advisors, and support teams.
+        </p>
+
+         <a href="https://www.mmu.ac.uk/about-us/contact" class="btn">Contact Us To Find Out More</a>
+    </div>
+
+    <div class="card">
+        <h3>📞 Contact & Support</h3>
+
+        <p>
+            If you need help during your time at university, MMU offers a wide range of support services.
+        </p>
+
+        <ul>
+            <li><a href="https://www.mmu.ac.uk/student-life/support" target="_blank">MMU Student Support</a></li>
+            <li><a href="https://www.theunionmmu.org/" target="_blank">Student Union</a></li>
+            <li><a href="https://www.mmu.ac.uk/wellbeing" target="_blank">Wellbeing Services</a></li>
+        </ul>
+
+        <p>Email: studenthelp@mmu.ac.uk</p>
+        <p>Phone: +44 (0)161 247 2000</p>
+
+        <p>
+            MMU supports thousands of students and provides help with academic work, finances, mental health, and career development.
+        </p>
+    </div>
+
+</div>
 
