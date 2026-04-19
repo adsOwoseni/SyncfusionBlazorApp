@@ -103,3 +103,35 @@
         overflow-y: auto;
     }
 }
+
+.add-note-button {
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+.note-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.note-link {
+    flex: 1;
+}
+
+.delete-note-button {
+    background: none;
+    border: transparent;
+    color: #d7d7d7;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 0.25rem;
+}
+
+.delete-note-button:hover {
+    color: white;
+}

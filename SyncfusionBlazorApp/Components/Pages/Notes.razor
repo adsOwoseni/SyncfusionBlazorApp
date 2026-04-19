@@ -1,0 +1,59 @@
+﻿@page "/original"
+@page "/note/{NoteId}"
+@rendermode InteractiveServer
+@inject IJSRuntime JS
+
+<input
+    value="@title"
+    @oninput="SaveTitle"
+    class="title-input" />
+
+<textarea
+    value="@noteText"
+    @oninput="Autosave"
+    placeholder="Start typing...."
+    class="notes-box">
+</textarea>
+
+@code {
+    // NoteId comes from the URL, and is used to determine which note to load
+    [Parameter]
+    public string? NoteId { get; set; }
+
+    // Stores current note context
+    private string noteText = "";
+
+    // Stores current note title
+    private string title = "Notes";
+
+    // Tracks which note is currently loaded
+    private string? loadedNoteId;
+
+    private string CurrentNoteId => string.IsNullOrWhiteSpace(NoteId) ? "original" : NoteId;
+    private string NoteStorageKey => $"userNote_{CurrentNoteId}";
+    private string TitleStorageKey => $"noteTitle_{CurrentNoteId}";
+
+    // Loads note from locaal storage when switching between notes
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (loadedNoteId != CurrentNoteId)
+        {
+            noteText = await JS.InvokeAsync<string>("noteStorage.load", NoteStorageKey) ?? "";
+            title = await JS.InvokeAsync<string>("noteStorage.load", TitleStorageKey) ?? "Notes";
+            loadedNoteId = CurrentNoteId;
+            StateHasChanged();
+        }
+    }
+
+    private async Task Autosave(ChangeEventArgs e)
+    {
+        noteText = e.Value?.ToString() ?? "";
+        await JS.InvokeVoidAsync("noteStorage.save", NoteStorageKey, noteText);
+    }
+
+    private async Task SaveTitle(ChangeEventArgs e)
+    {
+        title = e.Value?.ToString() ?? "";
+        await JS.InvokeVoidAsync("noteStorage.save", TitleStorageKey, title);
+    }
+}

@@ -1,13 +1,19 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject IJSRuntime JS
+@inject NavigationManager Navigation
+@implements IDisposable
+@rendermode InteractiveServer
+@using System.Text.Json
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">SyncfusionBlazorApp</a>
+        <a class="navbar-brand" href="">All Notes</a>
     </div>
 </div>
 
 <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
 
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
+    <nav class="nav flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
@@ -15,24 +21,155 @@
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+            <NavLink class="nav-link" href="tylerPage">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Student Help Page
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
+            <button type="button" class="nav-link add-note-button" @onclick="CreateNewNote">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> New Note
+            </button>
         </div>
-		
-			<div class="nav-item px-3">
- 	<NavLink class="nav-link" href="datetimepicker-features">
- 	<span class="syncfusion-blazor-icons syncfusion-blazor-icon-datetimepicker" aria-hidden="true"></span><span class="displayText">DateTime Picker</span>
- 	</NavLink>
- 	</div>
 
-		
+        
+        <!-- Renders a navigation link for each saved note -->
+        @foreach (var note in notes)
+        {
+            <div class="nav-item px-3 note-row">
+                <NavLink class="nav-link note-link" href="@GetNoteUrl(note.Id)">
+                    <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> @note.Title
+                </NavLink>
+
+                @if (note.Id != "original")
+                {
+                    <button type ="button" class="delete-note-button" @onclick="() => DeleteNote(note.Id)" aria-label="Delete note">
+                    x
+                    </button>
+                }
+            </div>
+        }
     </nav>
 </div>
 
+@code {
+    // Stores the list of notes displayed in sidebar
+    private List<NoteLink> notes = new();
+
+    // Prevents the notes list from being initialised more than once
+    private bool notesLoaded = false;
+
+    // Timer used to refresh sidabar so title changes appear automatically
+    private System.Threading.Timer? notesTimer;
+
+    // Local Stoage key that holds list of saved notes IDs
+    private const string NoteIndexKey = "noteIndex";
+
+    // Model used to represent one note link in sidebar
+    private sealed class NoteLink
+    {
+        public string Id { get; set; } = "";
+        public string Title { get; set; } = "New Note";
+    }
+
+    //Loads note on first render and starts timer to keep list updated
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !notesLoaded)
+        {
+            await LoadNotes();
+            notesLoaded = true;
+
+            notesTimer = new System.Threading.Timer(async _ =>
+            {
+                await InvokeAsync(async () =>
+                {
+                    await LoadNotes();
+                    StateHasChanged();
+                });
+            }, null, 0, 500);
+
+            StateHasChanged();
+        }
+    }
+    // Creates new note and saves it to locaal storage, then navitages to it
+    private async Task CreateNewNote()
+    {
+        var noteIds = await LoadNoteIds();
+        var newId = Guid.NewGuid().ToString("N");
+
+        noteIds.Add(newId);
+
+        await JS.InvokeVoidAsync("noteStorage.save", NoteIndexKey, JsonSerializer.Serialize(noteIds));
+        await JS.InvokeVoidAsync("noteStorage.save", $"noteTitle_{newId}", "New Note");
+        await JS.InvokeVoidAsync("noteStorage.save", $"userNote_{newId}", "");
+
+        await LoadNotes();
+        Navigation.NavigateTo(GetNoteUrl(newId));
+    }
+
+    // Loads saved notes titles so it can be displayed in sidebar
+    private async Task LoadNotes()
+    {
+        var noteIds = await LoadNoteIds();
+        var updatedNotes = new List<NoteLink>
+        {
+            new NoteLink
+            {
+                Id = "original",
+                Title = await JS.InvokeAsync<string>("noteStorage.load", "noteTitle_original") ?? "hell"
+            }
+        };
+
+        foreach (var id in noteIds)
+        {
+            updatedNotes.Add(new NoteLink
+            {
+                Id = id,
+                Title = await JS.InvokeAsync<string>("noteStorage.load", $"noteTitle_{id}") ?? "New Note"
+            });
+        }
+
+        notes = updatedNotes;
+    }
+    // Reads saved note IDs from local storage
+    private async Task<List<string>> LoadNoteIds()
+    {
+        var raw = await JS.InvokeAsync<string>("noteStorage.load", NoteIndexKey);
+
+        if (string.IsNullOrWhiteSpace(raw))
+        {
+            return new List<string>();
+        }
+
+        return JsonSerializer.Deserialize<List<string>>(raw) ?? new List<string>();
+    }
+    // Builds correct URL for notes based on its ID
+    private static string GetNoteUrl(string id)
+    {
+        return id == "original" ? "/original" : $"/note/{id}";
+    }
+
+    // Cleans up timer when component is removed
+    public void Dispose()
+    {
+        notesTimer?.Dispose();
+    }
+
+    private async Task DeleteNote(string noteId)
+    {var noteIds = await LoadNoteIds();
+        noteIds.Remove(noteId);
+        
+        await JS.InvokeVoidAsync("noteStorage.save", NoteIndexKey, JsonSerializer.Serialize(noteIds));
+        await JS.InvokeVoidAsync("noteStorage.remove", $"noteTitle_{noteId}");
+        await JS.InvokeVoidAsync("noteStorage.remove", $"userNote_{noteId}");
+        
+        await LoadNotes();
+        
+        var currentPath = Navigation.ToBaseRelativePath(Navigation.Uri);
+        if (currentPath == $"note/{noteId}")
+        {
+            Navigation.NavigateTo("/original");
+        }
+    }
+}
